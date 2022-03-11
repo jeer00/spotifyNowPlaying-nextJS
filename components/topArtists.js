@@ -43,7 +43,7 @@ const TopArtist = props => {
       <>
 <h1>My top-played artists: </h1>
 
-      <ImageList sx={{ width: 300, height: 164 }} cols={columns} rowHeight={164}>
+      <ImageList sx={{ width: 300, height: 164 }} cols={{ xxs: 4, xs: 4, sm: 4, md: 5, lg: 10 }} rowHeight={164}>
                {data.map((img) => (
                  
                  <ImageListItem key={img.img}>
