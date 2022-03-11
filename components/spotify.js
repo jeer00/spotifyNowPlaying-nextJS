@@ -21,13 +21,14 @@ import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
- export default function spotify() {
+const Spotify = props => {
+  const theme = useTheme();
   const api = 'http://localhost:3000/api/nowPlaying'
   const { data, error } = useSWR(api, fetcher)
   if (error) return <div>Spelar inte någon låt just nu :)</div>
     if (!data) return <div>Laddar låt..</div>
 const songData = data
-    const theme = useTheme();
+   
     
     return (
       <>
@@ -63,4 +64,4 @@ const songData = data
     )
 }
 
-// export default Spotify
+export default Spotify

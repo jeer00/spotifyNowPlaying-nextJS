@@ -3,6 +3,7 @@ import { ImageListItem } from '@material-ui/core';
 import useSWR from 'swr';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles } from '@material-ui/core/styles';
+import Image from 'next/image';
 
 const useStyles = makeStyles({
   a: {
@@ -17,13 +18,14 @@ const useStyles = makeStyles({
 });
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
- export default function topArtist() {
+const TopArtist = props => {
+  const theme = useTheme();
   const api = 'http://localhost:3000/api/topArtists'
   const { data, error } = useSWR(api, fetcher)
   const classes = useStyles();
   if (error) return <div>FELFELFEL</div>
     if (!data) return <div>Laddar artister..</div>
-    const theme = useTheme();
+    
     
     return (
       <>
@@ -34,10 +36,13 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
                  
                  <ImageListItem key={img.img}>
                    <a className={classes.a} href={img.url}>
-                 <img 
+                 <Image 
                  className={classes.img}
                    src={img.img}
                   loading="lazy"
+                  width={164}
+                  height={164}
+
                   
                  />
                 </a>
@@ -48,3 +53,4 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
             </>
     )
 }
+export default TopArtist
