@@ -37,8 +37,8 @@ export default async function handler(req, res)  {
         img: nowPlaying.item.album.images[0],
         duration: nowPlaying.item.duration_ms,
         progress: nowPlaying.progress_ms,
+        url: nowPlaying.item.external_urls.spotify
         }
-
         res.status(200).json(apiData)
         
        

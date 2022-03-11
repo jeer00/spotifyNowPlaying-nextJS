@@ -43,9 +43,13 @@ const songData = data
             </Typography>
           </CardContent>
           <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 , width: 60 }}>
+          <a href = {songData.url}>
             <IconButton>
+              
                <LibraryMusicIcon />
+               
             </IconButton>
+            </a>
           </Box>
         </Box>
         <CardMedia

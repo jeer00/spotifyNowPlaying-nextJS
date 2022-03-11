@@ -6,18 +6,18 @@ import  Spotify  from '../components/spotify.js'
 import TopArtist from '../components/topArtists.js'
 
 
-export default function Home({song}) {
+export default function Home() {
   return (
     <div className={styles.container}>
      
       <Head>
-        <title>Portfolio</title>
+        <title>Spotify-Displayer</title>
         <meta name="description" content=":D" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TopArtist></TopArtist>
-      <h1 className={styles.main}>
       
+      <h1 className={styles.main}>
+      <TopArtist></TopArtist>
     <Spotify></Spotify>
        </h1>
   
