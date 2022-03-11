@@ -20,7 +20,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const TopArtist = props => {
   const theme = useTheme();
-  const api = 'http://localhost:3000/api/topArtists'
+  const api = '/api/topArtists'
   const { data, error } = useSWR(api, fetcher)
   const classes = useStyles();
   if (error) return <div>FELFELFEL</div>

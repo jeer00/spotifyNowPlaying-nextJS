@@ -23,7 +23,7 @@ const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 const Spotify = props => {
   const theme = useTheme();
-  const api = 'http://localhost:3000/api/nowPlaying'
+  const api = '/api/nowPlaying'
   const { data, error } = useSWR(api, fetcher)
   if (error) return <div>Spelar inte någon låt just nu :)</div>
     if (!data) return <div>Laddar låt..</div>
