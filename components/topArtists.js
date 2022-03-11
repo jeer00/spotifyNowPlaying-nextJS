@@ -25,13 +25,25 @@ const TopArtist = props => {
   const classes = useStyles();
   if (error) return <div>FELFELFEL</div>
     if (!data) return <div>Laddar artister..</div>
-    
+    let columns = 10
+    let w = 164
+    if (window.innerWidth < 700) {
+      columns = 5
+      w = 82
+    } 
+    if (window.innerWidth < 300) {
+      columns = 3
+      w = 41
+    }
+
+
     
     return (
+      
       <>
 <h1>My top-played artists: </h1>
 
-      <ImageList sx={{ width: 500, height: 450 }} cols={10} rowHeight={164}>
+      <ImageList sx={{ width: 300, height: 164 }} cols={columns} rowHeight={164}>
                {data.map((img) => (
                  
                  <ImageListItem key={img.img}>
@@ -40,8 +52,8 @@ const TopArtist = props => {
                  className={classes.img}
                    src={img.img}
                   loading="lazy"
-                  width={164}
-                  height={164}
+                  width={w}
+                  height={w}
 
                   
                  />
